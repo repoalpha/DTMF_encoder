@@ -1,7 +1,7 @@
 # DTMF_encoder
 
 The original intent of this project was to create a DTMF tone generator and metadata file to create audio samples for deep learning.
-On the surface a DTMF audio tone generator would seem a trivial execise, but a number of significant challanges arose using pyaudio as an audio source to create samples for deeplearning. This DTMF encoder modifies a simple encoder created by Noah Spurrier. In particular it adds some special features to it to make it useful I think in deeplearning.
+On the surface a DTMF audio tone generator would seem a trivial execise, but a number of significant challanges arose using pyaudio as an audio source to create samples for deeplearning. This DTMF encoder modifies a simple encoder created by Noah Spurrier. In particular it adds some special features to make it useful I think in deeplearning.
 
 1. The DTMF tone generator saves all the tones as one long numpy array to be used to save all the captured audio as a single wave file.
 2. There is talk on the net that the 'wave module' won't support float32 and only int16 samples this appears to be untrue as of this date.
