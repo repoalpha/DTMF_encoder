@@ -1,7 +1,4 @@
 '''
-To install dependencies on Mac OS X run the following commands:
-    sudo brew install portaudio
-    sudo pip install --allow-external pyaudio --allow-unverified pyaudio pyaudio
 
  DTMF
                 1209 Hz 1336 Hz 1477 Hz 1633 Hz
