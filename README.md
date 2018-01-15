@@ -14,8 +14,8 @@ I could not find any example on the net of how to save a sythesized waveform usi
 
 ## Dependencies 
 
-pyaudio
-wave
+pyaudio 
+wave 
 numpy
 
 ## Installation of pyaudio
