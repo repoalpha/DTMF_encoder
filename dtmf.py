@@ -105,6 +105,7 @@ if __name__ == '__main__':
         digits=digits.replace("[",'') # replace characters with null
         digits=digits.replace("]",'')
         digits=digits.replace("'",'')
+        digits=digits.replace("\n",'')
         digits=digits.replace(" ",'') # replace space with null
         # print(digits)
         
