@@ -63,7 +63,7 @@ def play_dtmf_tone(stream, digits, length=0.2, rate=44100):
                   '8': (1336, 852), '9': (1477, 852), 'C': (1633, 852),
                   '*': (1209, 941), '0': (1336, 941), '#': (1477, 941),
                   'D': (1633, 941)}
-    if type(digits) is not type(''):
+    if type(digits) is None:
         digits = str(digits)[0]
     digits = ''.join([dd for dd in digits if dd in list(dtmf_freqs)])
     joined_chunks = []
