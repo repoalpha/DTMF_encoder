@@ -57,10 +57,9 @@ def play_dtmf_tone(stream, digits, length=0.2, rate=44100):
                   '4': (1209,770), '5': (1336, 770), '6': (1477, 770), 'B': (1633, 770),
                   '7': (1209,852), '8': (1336, 852), '9': (1477, 852), 'C': (1633, 852),
                   '*': (1209,941), '0': (1336, 941), '#': (1477, 941), 'D': (1633, 941)}
-    dtmf_digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#', 'A', 'B', 'C', 'D']
     if type(digits) is not type(''):
         digits=str(digits)[0]
-    digits = ''.join ([dd for dd in digits if dd in dtmf_digits])
+    digits = ''.join ([dd for dd in digits if dd in list(dtmf_freqs)])
     joined_chunks = []
     for digit in digits:
         digit=digit.upper()
