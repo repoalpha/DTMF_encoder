@@ -34,6 +34,13 @@ RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = "dtmf.wav"
 p = pyaudio.PyAudio()
 
+dtmf_freqs = {'1': (1209, 697), '2': (1336, 697), '3': (1477, 697),
+              'A': (1633, 697), '4': (1209, 770), '5': (1336, 770),
+              '6': (1477, 770), 'B': (1633, 770), '7': (1209, 852),
+              '8': (1336, 852), '9': (1477, 852), 'C': (1633, 852),
+              '*': (1209, 941), '0': (1336, 941), '#': (1477, 941),
+              'D': (1633, 941)}
+
 
 def sine_wave(frequency, length, rate):
     length = int(length * rate)
@@ -57,12 +64,6 @@ def play_tone(stream, frequency=440, length=0.10, rate=44100):
 
 
 def play_dtmf_tone(stream, digits, length=0.2, rate=44100):
-    dtmf_freqs = {'1': (1209, 697), '2': (1336, 697), '3': (1477, 697),
-                  'A': (1633, 697), '4': (1209, 770), '5': (1336, 770),
-                  '6': (1477, 770), 'B': (1633, 770), '7': (1209, 852),
-                  '8': (1336, 852), '9': (1477, 852), 'C': (1633, 852),
-                  '*': (1209, 941), '0': (1336, 941), '#': (1477, 941),
-                  'D': (1633, 941)}
     if type(digits) is None:
         digits = str(digits)[0]
     digits = ''.join([dd for dd in digits if dd in list(dtmf_freqs)])
@@ -108,8 +109,7 @@ if __name__ == '__main__':
 
     # Dial a telephone number.
     if len(sys.argv) != 2:
-        a = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#', 'A',
-             'B', 'C', 'D']
+        a = list(dtmf_freqs)
         # set random length of numbers to pluck from list
         digits = str(np.random.choice(a, 20))
         # below preps random list of numbers for inclusion into csv file
